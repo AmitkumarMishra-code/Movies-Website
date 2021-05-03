@@ -20,9 +20,8 @@ export default function App() {
                     Home />
                 <
         /Route> {
-                    <Route path="/movie/:id">
-                        <Selected />
-                    </Route>
+                    <Route path="/movie/:id" component = {Selected} />
+
                 } <
         Route path="/404" >
                     <

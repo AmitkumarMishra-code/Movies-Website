@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+// import { useParams } from 'react-router-dom'
 import Genre from './Genre'
 import OTT from './OTT'
 
 export default function Selected(props) {
-    let params = useParams()
+    // let params = useParams()
     let [loading, setLoading] = useState(true)
     let [movieData, setMovieData] = useState({})
     let [trailer, setTrailer] = useState("https://www.youtube.com/")
@@ -13,9 +13,10 @@ export default function Selected(props) {
     let [ottUS, setOttUS] = useState([])
     let path = 'https://image.tmdb.org/t/p/'
     // console.log(params)
+    // console.log(this.params)
 
     async function getMovieData() {
-        let response = await fetch(`https://api.themoviedb.org/3/movie/${params.id}?api_key=18ef1e80a5a1e2408235db52406c9927&language=en-US&append_to_response=videos,reviews,watch/providers`)
+        let response = await fetch(`https://api.themoviedb.org/3/movie/${props.match.params.id}?api_key=18ef1e80a5a1e2408235db52406c9927&language=en-US&append_to_response=videos,reviews,watch/providers`)
         let data = await response.json()
         setMovieData(data)
         console.log(data)
