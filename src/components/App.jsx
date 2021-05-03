@@ -22,12 +22,9 @@ export default function App() {
         /Route> {
                     <Route path="/movie/:id" component = {Selected} />
 
-                } <
-        Route path="/404" >
-                    <
-        h1 > Page Not Found < /h1> <
-        /Route> <
-                            Redirect to="/404" />
+                } 
+        <
+                            Redirect to="/" />
                         <
         /Switch> <
         /Router>
