@@ -12,7 +12,7 @@ export default function Selected(props) {
     let [message, setMessage] = useState('click to expand')
     let [ottUS, setOttUS] = useState([])
     let path = 'https://image.tmdb.org/t/p/'
-    // console.log(params)
+    console.log(props.match.params)
     // console.log(this.params)
 
     async function getMovieData() {
@@ -78,7 +78,9 @@ export default function Selected(props) {
     useEffect(() => {
         getMovieData()
         // eslint-disable-next-line
-    }, [props.match.params.id])
+    }, [])
+
+    useEffect(() =>{},[props.match.params.id])
 
     return (
         <div className='container'>
