@@ -4,7 +4,7 @@ import Genre from './Genre'
 import OTT from './OTT'
 
 export default function Selected(props) {
-    // let params = useParams()
+    let id = props.match.params.id
     let [loading, setLoading] = useState(true)
     let [movieData, setMovieData] = useState({})
     let [trailer, setTrailer] = useState("https://www.youtube.com/")
@@ -16,7 +16,7 @@ export default function Selected(props) {
     // console.log(this.params)
 
     async function getMovieData() {
-        let response = await fetch(`https://api.themoviedb.org/3/movie/${props.match.params.id}?api_key=18ef1e80a5a1e2408235db52406c9927&language=en-US&append_to_response=videos,reviews,watch/providers`)
+        let response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=18ef1e80a5a1e2408235db52406c9927&language=en-US&append_to_response=videos,reviews,watch/providers`)
         let data = await response.json()
         setMovieData(data)
         console.log(data)
@@ -77,7 +77,7 @@ export default function Selected(props) {
     useEffect(() => {
         getMovieData()
         // eslint-disable-next-line
-    }, [])
+    }, [id])
 
     return (
         <div className='container'>
