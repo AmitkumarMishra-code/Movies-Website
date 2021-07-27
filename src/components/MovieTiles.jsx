@@ -8,7 +8,6 @@ export default function MovieTiles(props) {
     let path = 'https://image.tmdb.org/t/p/w500/'
 
 
-    // console.log(props.value)
     let displayFloatingInfo = () => {
         setDisplay('flex')
         setTransition('all 50ms ease-in')

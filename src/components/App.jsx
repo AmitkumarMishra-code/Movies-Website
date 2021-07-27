@@ -20,12 +20,12 @@ export default function App() {
                     Home />
                 <
         /Route> {
-                    <Route path="/movie/:id" component = {Selected} />
+                    <Route path="/movie/:id" component={Selected} />
 
-                } 
-        <
-                            Redirect to="/" />
-                        <
+                }
+                <
+                    Redirect to="/" />
+                <
         /Switch> <
         /Router>
     )

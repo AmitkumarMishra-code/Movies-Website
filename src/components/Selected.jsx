@@ -1,10 +1,7 @@
 import { useState, useEffect } from 'react'
-// import { useParams } from 'react-router-dom'
 import Genre from './Genre'
 import OTT from './OTT'
-// let id = props.match.params.id
 export default function Selected(props) {
-    // let id = props.match.params.id
     let [loading, setLoading] = useState(true)
     let [movieData, setMovieData] = useState({})
     let [trailer, setTrailer] = useState("https://www.youtube.com/")
@@ -12,15 +9,11 @@ export default function Selected(props) {
     let [message, setMessage] = useState('click to expand')
     let [ottUS, setOttUS] = useState([])
     let path = 'https://image.tmdb.org/t/p/'
-    console.log(props.match.params)
-    // console.log(this.params)
 
     async function getMovieData() {
-        // console.log(id)
         let response = await fetch(`https://api.themoviedb.org/3/movie/${props.match.params.id}?api_key=18ef1e80a5a1e2408235db52406c9927&language=en-US&append_to_response=videos,reviews,watch/providers`)
         let data = await response.json()
         setMovieData(data)
-        // console.log(data)
         getTrailer(data)
         getOTTProviders(data['watch/providers'].results)
         setLoading(false)
@@ -34,7 +27,7 @@ export default function Selected(props) {
             else if ('flatrate' in ottProviders['US']){
                 setOttUS(ottProviders['US'].flatrate.map(provider => [provider.logo_path, provider.provider_name]))
             }
-            else{
+            else if('rent' in ottProviders['US']){
                 setOttUS(ottProviders['US'].rent.map(provider => [provider.logo_path, provider.provider_name]))
             }
         }
